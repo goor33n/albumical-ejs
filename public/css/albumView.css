@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: left;
+}
+.albumView {
+  position: relative;
+  width: 55vh;
+  height: 55vh;
+}
+.commentScroll {
+  width: 55vh;
+  height: 46vh;
+  text-align: left;
+  position: absolute;
+  z-index: 10;
+  color: white;
+  padding: 20px;
+  bottom: 0;
+  overflow: scroll;
+}
+
+
+.albumView img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.5);
+  position: absolute;
+}
+
+.albumTextContainer {
+  width: 55vh;
+  text-align: left;
+  position: absolute;
+  z-index: 10;
+  color: white;
+  padding: 20px;
+  bottom: 0;
+}
+
+.albumTitle {
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: 0.5px; 
+  line-height: calc(1.6em - 10px);
+}
+
+.albumArtist {
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: calc(1.2em + 0px);
+  padding-bottom: 6px;
+}
+
+.albumDescription {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: calc(1em + 4px);
+  padding-bottom: 4px;
+}
+
+.albumReleased {
+  width: calc(55vh - 40px);
+  text-align: right;
+  font-size: 0.8em;
+  font-weight: 400;
+  line-height: calc(0.8em + 0px);
+  color: #ddd;
+}
+
+
+.albumView button {
+  z-index: 20;
+  background: transparent;
+  color: #ddd;
+  border-radius: 40px;
+  border: 1.4px solid #ddd;
+  font-size: 0.9em;
+}
+
+.albumView #nextBtn {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+}
+
+.albumView #backBtn {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+}

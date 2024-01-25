@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- header -->
+  <%- include('./components/header'); %>
+  
+  <body style="background-color: #F5F5F5;">
+    <div class="title">
+      <div id="mainTitle">albumical</div>
+      <div id="subTitle">admin</div>
+    </div>
+
+    <div class="addAlbum">
+      <button type="button" class="btn btn-dark" onclick="location.href='/'">home</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">add new album</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="/admin" method="post" enctype="multipart/form-data">
+            <div class="modal-body">
+                <div class="mb-3">
+                  
+                  <input type="text" class="form-control" id="title" name="title" placeholder="album title">
+                </div>
+
+                <div class="mb-3">
+                  
+                  <input type="text" class="form-control" id="artist" name="artist" placeholder="artist name">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="released" name="released" placeholder="released date">
+                </div>
+
+                <div class="mb-3">
+                  
+                  <textarea class="form-control" id="description" name="description" placeholder="album description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <div class="mb-3">
+                    <label for="albumCoverImg" class="form-label">album cover image</label>
+                    <input class="form-control" type="file" id="albumCoverImg" name="albumCoverImg">
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+              <button type="submit button" class="btn btn-primary">add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./components/albumAdminList'); %>
+
+    <!-- footer -->
+    <%- include('./components/footer'); %>
+  </body>
+</html>

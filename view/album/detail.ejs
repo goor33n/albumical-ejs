@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- header -->
+  <%- include('../components/header'); %>
+  <link rel="stylesheet" href="/css/albumView.css">
+  
+  <body style="background-color: #F5F5F5;">
+    <div class="container">
+      <div class="albumView">
+        <button type="button" class="btn btn-light" id="backBtn" onclick="location.href='/'">back</button>
+        <button type="button" class="btn btn-light" id="nextBtn" onclick="location.href='/album/comment/<%= result.id %>'">comment</button>
+        <div class="albumTextContainer">
+          <div class="albumTitle"><%= result.title %></div>
+          <div class="albumArtist"><%= result.artist %></div>
+          <div class="albumDescription"><%= result.description %></div>
+          <div class="albumReleased"><%= result.released %></div>
+        </div>
+        <img src="/image/album/<%= result.imgPath %>" alt="album1">
+      </div>
+    </div>
+
+    <!-- footer -->
+    <%- include('../components/footer'); %>
+  </body>
+</html>

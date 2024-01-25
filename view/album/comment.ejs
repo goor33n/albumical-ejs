@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- header -->
+  <%- include('../components/header'); %>
+  <link rel="stylesheet" href="/css/albumView.css">
+  
+  <body style="background-color: #F5F5F5;">
+    <div class="container">
+      <div class="albumView">
+        <button type="button" class="btn btn-light" id="backBtn" onclick="location.href='/album/<%= albumResult.id %>'">back</button>
+        <button type="button" class="btn btn-light" id="nextBtn" data-bs-toggle="modal" data-bs-target="#addCommentModal">+</button>
+        <div class="commentScroll" id="commentScroll">
+          <% if(!commentResult.length) { %>
+            <div class="albumTitle">there're no comments</div>
+          <% } else { %>
+            <% for(let i=commentResult.length-1; i>=0; i--) { %>
+                <div class="albumArtist"><%= commentResult[i].commentTxt %></div>
+            <% } %>
+          <% } %>
+        </div>
+        <img src="/image/album/<%= albumResult.imgPath %>" alt="album1">
+      </div>
+    </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addCommentModal" tabindex="-1" aria-labelledby="addCommentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addCommentModalLabel">commenting</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/album/comment/<%= albumResult.id %>" method="post">
+          <div class="modal-body">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="commentTxt" name="commentTxt" placeholder="such a good album..">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+            <button type="submit button" class="btn btn-primary">comment!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- footer -->
+    <%- include('../components/footer'); %>
+  </body>
+
+  <script>
+    var objDiv = document.getElementById("commentScroll");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  </script>
+</html>

@@ -1,0 +1,53 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.7/dist/web/static/pretendard-dynamic-subset.css");
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  background-color: #000000;
+}
+.title {
+  writing-mode: vertical-rl;
+  position: fixed;
+  right: -15px;
+  top: 15vh
+}
+#mainTitle {
+  font-size: 2.5em;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+#subTitle {
+  writing-mode: vertical-rl;
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 27px;
+}
+
+.albumList {
+  /* max-width: vw; */
+  position: absolute;
+  left: 5vw;
+  top: 16vh;
+}
+/* 
+.albumList .col img {
+  max-width: 20vw;
+  height: auto;
+} */
+
+.albumList .col img {
+  width: 100%;
+  height: 100%;
+}
+
+.albumList .col {
+  padding-right: 3vw;
+  padding-bottom: 4vw;
+  width: 25vw;
+  height: 25vw;
+  /* width: calc((100% / 3) - 2rem); */
+}
+
+.addAlbum {
+  position: absolute;
+  left: 5vw;
+  padding-top: 50px;
+}

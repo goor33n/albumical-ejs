@@ -1,0 +1,33 @@
+<div class="albumList">
+  <% let count = 0; %>
+  <% if(result.length === 0){ %>
+    <div class="row">
+      <div class="col text-center">
+        <img src="/image/album/albumCover.png" alt="album1">
+        empty
+      </div>
+      <div class="col">
+        <img src="/image/album/albumCover.png" alt="album1">
+      </div>
+      <div class="col">
+        <img src="/image/album/albumCover.png" alt="album1">
+      </div>
+    </div>
+  <% } %>
+  <% for(let i=(result.length%3 === 0 ? result.length/3 : Math.floor(result.length/3)+1); i>0; i--){ %>
+    <div class="row">
+      <% for(let j=0; j<3; j++){ %>
+        <% if(result.length>count){ %>
+          <div class="col">
+            <a href="/album/<%= result[count].id %>"><img src="/image/album/<%= result[count].imgPath %>" alt="album1"></a>
+          </div>
+          <% count++; %>
+        <% } else { %>
+          <div class="col">
+            <img src="/image/album/albumCover.png" alt="album1">
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  <% } %>
+</div>

@@ -1,0 +1,59 @@
+<div class="albumList">
+  <% let count = 0; %>
+  <% if(result.length === 0){ %>
+    <div class="row">
+      <div class="col text-center">
+        <img src="/image/album/albumCover.png" alt="album1">
+        empty
+      </div>
+      <div class="col">
+        <img src="/image/album/albumCover.png" alt="album1">
+      </div>
+      <div class="col">
+        <img src="/image/album/albumCover.png" alt="album1">
+      </div>
+    </div>
+  <% } %>
+  <% for(let i=(result.length%3 === 0 ? result.length/3 : Math.floor(result.length/3)+1); i>0; i--){ %>
+    <div class="row">
+      <% for(let j=0; j<3; j++){ %>
+        <% if(result.length>count){ %>
+          <div class="col">
+            <img src="/image/album/<%= result[count].imgPath %>" alt="album1">
+            <button id="deleteBtn<%= count %>" class="btn btn-secondary">-</button>
+            <%= result[count].title %>
+          </div>
+          <% count++; %>
+        <% } else { %>
+          <div class="col">
+            <img src="/image/album/albumCover.png" alt="album1">
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  <% } %>
+
+  <script>
+    $(function() {
+      <% for(let i=0; i<result.length; i++){ %>
+        $('#deleteBtn'+<%= i %>).on("click", (function() {
+          const result = confirm("are you sure?")
+          if (result) {
+            $.ajax({
+              url: '/admin/delete/<%= result[i].id %>',
+              type: 'DELETE',
+              success: function() {
+                location.href = '/admin';
+              },
+              error: function(request, response, error) {
+                alert(request.responseJSON.message)
+              }
+            }) 
+          }
+        }))
+      <% } %>
+    })
+
+    
+  </script>
+</div>
